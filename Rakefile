@@ -1,3 +1,6 @@
+require 'standalone_migrations'
+StandaloneMigrations::Tasks.load_tasks
+
 require "bundler/gem_tasks"
 
 task :console do
