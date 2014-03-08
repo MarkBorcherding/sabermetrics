@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140308015032) do
     t.string  "team_id"
     t.string  "league_id"
     t.integer "year"
+    t.integer "stint"
     t.integer "games"
     t.integer "games_as_batter"
     t.integer "at_bats"
@@ -32,7 +33,7 @@ ActiveRecord::Schema.define(version: 20140308015032) do
     t.integer "rbis"
     t.integer "stolen_bases"
     t.integer "caught_stealing"
-    t.integer "intentioal_walks"
+    t.integer "intentional_walks"
     t.integer "hit_by_pitch"
     t.integer "sacrifice_hits"
     t.integer "sacrifice_flies"
@@ -43,7 +44,7 @@ ActiveRecord::Schema.define(version: 20140308015032) do
   add_index "lahman_battings", ["year"], name: "index_lahman_battings_on_year", using: :btree
 
   create_table "lahman_players", id: false, force: true do |t|
-    t.string   "id"
+    t.string   "id",            null: false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "given_name"

@@ -9,12 +9,13 @@ class AddPlayers < ActiveRecord::Migration
         t.integer *[:year, :month, :day].map { |i| "#{b}_#{i}".to_sym }
       end
     end
+    execute "ALTER TABLE lahman_players ADD PRIMARY KEY (id);"
     add_index :lahman_players, :id
     add_index :lahman_players, :retro_id
     add_index :lahman_players, :bb_ref_id
   end
 
   def down
-    drop_table :players
+    drop_table :lahman_players
   end
 end
