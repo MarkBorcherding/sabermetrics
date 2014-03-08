@@ -9,11 +9,41 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140301231308) do
+ActiveRecord::Schema.define(version: 20140308015032) do
 
-  create_table "lahman_players", :force => true do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "lahman_battings", force: true do |t|
+    t.string  "player_id"
+    t.string  "team_id"
+    t.string  "league_id"
+    t.integer "year"
+    t.integer "games"
+    t.integer "games_as_batter"
+    t.integer "at_bats"
+    t.integer "runs"
+    t.integer "hits"
+    t.integer "doubles"
+    t.integer "triples"
+    t.integer "home_runs"
+    t.integer "rbis"
+    t.integer "stolen_bases"
+    t.integer "caught_stealing"
+    t.integer "intentioal_walks"
+    t.integer "hit_by_pitch"
+    t.integer "sacrifice_hits"
+    t.integer "sacrifice_flies"
+    t.integer "ground_into_double_playes"
+  end
+
+  add_index "lahman_battings", ["player_id"], name: "index_lahman_battings_on_player_id", using: :btree
+  add_index "lahman_battings", ["year"], name: "index_lahman_battings_on_year", using: :btree
+
+  create_table "lahman_players", id: false, force: true do |t|
+    t.string   "id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "given_name"
@@ -39,8 +69,8 @@ ActiveRecord::Schema.define(:version => 20140301231308) do
     t.integer  "death_day"
   end
 
-  add_index "lahman_players", ["bb_ref_id"], :name => "index_lahman_players_on_bb_ref_id"
-  add_index "lahman_players", ["id"], :name => "index_lahman_players_on_id"
-  add_index "lahman_players", ["retro_id"], :name => "index_lahman_players_on_retro_id"
+  add_index "lahman_players", ["bb_ref_id"], name: "index_lahman_players_on_bb_ref_id", using: :btree
+  add_index "lahman_players", ["id"], name: "index_lahman_players_on_id", using: :btree
+  add_index "lahman_players", ["retro_id"], name: "index_lahman_players_on_retro_id", using: :btree
 
 end

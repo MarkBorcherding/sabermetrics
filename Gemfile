@@ -4,3 +4,5 @@ source 'https://rubygems.org'
 gemspec
 gem 'debugger'
 gem 'pry-debugger'
+gem 'rails'
+gem 'pg'

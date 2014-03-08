@@ -1,6 +1,6 @@
 class AddPlayers < ActiveRecord::Migration
   def up
-    create_table :lahman_players do |t|
+    create_table :lahman_players, id: false do |t|
       t.string :id, :first_name, :last_name, :given_name, :retro_id, :bb_ref_id
       t.integer :weight, :height, :bats, :throws
       t.datetime :debut, :final_game
