@@ -4,5 +4,8 @@ source 'https://rubygems.org'
 gemspec
 gem 'debugger'
 gem 'pry-debugger'
+gem 'wirb'
+gem 'awesome_print'
+gem 'hirb'
 gem 'rails'
 gem 'pg'
