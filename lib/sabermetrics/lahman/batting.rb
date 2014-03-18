@@ -1,5 +1,4 @@
 require 'active_record'
-require_relative '../../batting'
 
 module Sabermetrics
   module Lahman

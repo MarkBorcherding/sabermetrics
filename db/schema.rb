@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140308015032) do
+ActiveRecord::Schema.define(version: 20140318012804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,5 +73,32 @@ ActiveRecord::Schema.define(version: 20140308015032) do
   add_index "lahman_players", ["bb_ref_id"], name: "index_lahman_players_on_bb_ref_id", using: :btree
   add_index "lahman_players", ["id"], name: "index_lahman_players_on_id", using: :btree
   add_index "lahman_players", ["retro_id"], name: "index_lahman_players_on_retro_id", using: :btree
+
+  create_table "zip_batters", id: false, force: true do |t|
+    t.string  "name"
+    t.string  "player_id"
+    t.integer "games"
+    t.integer "plate_appearances"
+    t.integer "at_bats"
+    t.integer "hits"
+    t.integer "doubles"
+    t.integer "triples"
+    t.integer "home_runs"
+    t.integer "runs"
+    t.integer "rbis"
+    t.integer "walk"
+    t.integer "strike_out"
+    t.integer "hit_by_pitch"
+    t.integer "stolen_bases"
+    t.integer "caught_stealing"
+    t.integer "average"
+    t.integer "on_base_percentange"
+    t.integer "slugging_percentage"
+    t.integer "OPS"
+    t.integer "wOBA"
+    t.integer "Fld"
+    t.integer "BsR"
+    t.integer "WAR"
+  end
 
 end
